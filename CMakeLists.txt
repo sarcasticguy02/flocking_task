@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21.1)
 
-include(cmake/gate/cmake/HunterGate.cmake)
+include (cmake/gate/cmake/HunterGate.cmake)
 option(HUNTER_STATUS_DEBUG "Hunter debug info" ON)
 HunterGate(
         URL "https://github.com/cpp-pm/hunter/archive/v0.23.269.tar.gz"
