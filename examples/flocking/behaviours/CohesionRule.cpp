@@ -1,11 +1,18 @@
 #include "CohesionRule.h"
 #include "../gameobjects/Boid.h"
+using namespace std;
 
 Vector2 CohesionRule::computeForce(const std::vector<Boid*>& neighborhood, Boid* boid) {
-    Vector2 cohesionForce;
+    Vector2 cohesionForce = Vector2(0, 0);
 
-    // todo: add your code here to make a force towards the center of mass
-    // hint: iterate over the neighborhood
+    if (neighborhood.size() > 0)
+    {
+        for (int i = 0; i < neighborhood.size(); i++)
+        {
+            cohesionForce += neighborhood[i]->getPosition();
+        }
+        cohesionForce = (cohesionForce / neighborhood.size()) - boid->getPosition();
+    }
 
-    return cohesionForce;
+    return cohesionForce.normalized();
 }
